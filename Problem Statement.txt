@@ -1,0 +1,98 @@
+Python Exercise: “Student Bulletin Board Generator”
+
+Problem Statement
+
+You are given:
+	1.	A list of n student names.
+	2.	A list of n sets of marks (each student has marks out of 100).
+
+Your task is to generate a Bulletin Board that shows each student’s average score, ranking, grade band, and whether they were given a grace mark.
+
+⸻
+
+Requirements
+	1.	Valid Marks Condition
+                •	Each student must have exactly 5 marks.
+                •	If a student does not have 5 marks, skip that student’s record (do not calculate anything for them, but continue processing others).
+	2.	Grace Mark Rule
+                •	If a student’s average is less than 60 but would become ≥60 by adding a single grace mark to their average mark, then:
+                •	Add +1 to that average mark.
+                •	Mark "Grace Applied = Yes".
+                •	If grace cannot help them, mark "Grace Applied = No".
+	3.	Average & Grade Calculation
+                •	Compute each student’s average marks (rounded to 2 decimal places).
+                •	Assign grade bands:
+                •	85–100 → High Distinction
+                •	75–84.99 → Distinction
+                •	65–74.99 → Credit
+                •	60–64.99 → Pass
+                •	<60 → Fail
+	4.	Ranking System
+                •	Sort students by average score (descending).
+                •	The top three should be displayed as "1st rank", "2nd rank", "3rd rank".
+                •	Remaining students should be numbered sequentially starting from 4, 5, 6, …
+	5.	Mutability Demonstration
+                •	Store marks initially as a tuple (immutable).
+                •	Convert them to a list when applying grace marks (mutable).
+
+⸻
+
+Example Input (Provided)
+
+students = ["Alice", "Bob", "Carol", "David", "Eva", "Frank", "George", "Helen", "Ivy", "Jack"]
+marks = [
+      (95, 89, 92, 90, 91),   # Alice
+    (85, 86, 87, 88, 82),   # Bob
+    (78, 79, 80, 77, 75),   # Carol
+    (92, 90, 88, 87, 86),   # David
+    (65, 68, 70, 72, 69),   # Eva
+    (59, 61, 63, 60, 58),   # Frank 
+    (40, 45, 50, 42, 38),   # George 
+    (82, 84, 81, 83, 85),   # Helen
+    (55, 57, 53, 59, 60),   # Ivy 
+    (88, 91, 93, 89, 90)    # Jack
+]
+
+
+⸻
+
+Example Output (Bulletin Board)
+
+==================== STUDENT BULLETIN BOARD ====================
+|    Rank    |   Name    |  Average  |     Grade      | Grace Applied |
+----------------------------------------------------------------
+| 1st rank   |  Alice    |   91.40   | High Distinction |     No      |
+| 2nd rank   |  Jack     |   90.20   | High Distinction |     No      |
+| 3rd rank   |  David    |   88.60   | High Distinction |     No      |
+| 4          |  Bob      |   85.60   | High Distinction |     No      |
+| 5          |  Helen    |   83.00   | Distinction      |     No      |
+| 6          |  Carol    |   77.80   | Distinction      |     No      |
+| 7          |  Eva      |   68.80   | Credit           |     No      |
+| 8          |  Frank    |   60.20   | Pass             |     Yes     |
+| 9          |  Ivy      |   60.80   | Pass             |     Yes     |
+| 10         |  George   |   43.00   | Fail             |     No      |
+================================================================
+
+
+📌 Important Note
+
+For this exercise, you are required to complete the function generate_bulletin_board(students, marks) exactly as defined below.
+
+Please use the following function scaffold and complete the logic inside:
+
+def generate_bulletin_board(students, marks):
+    """
+    Function to generate the Student Bulletin Board.
+
+    Parameters:
+        students (list): A list of student names.
+        marks (list of tuples): A list where each tuple contains the marks of a student.
+
+    Returns:
+        list: A nested list where each sublist contains:
+              [Rank, Name, Average, Grade, GraceApplied]
+    """
+    # TODO: Implement the logic as per the problem statement
+    pass
+
+Command to run test cases - python -m unittest test_bulletin_extended.py
